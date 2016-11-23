@@ -49,5 +49,5 @@ Options that don't take additional arguments.
 ## Learned facts so far
 * it is based on DrawBridge research as Linux on Windows is
 * in this case it is all user-mode implementation, ntdll.dll and few others are patched on the go to remove syscalls
-* it is all done to make more abstract (and with less "calls") interface called PAL- (Platform Abstraction Layer?)
+* it is all done to make more abstract (and with less "calls") interface called PAL (Platform Abstraction Layer?)
 * to run DrawBridged system you really don't need much to implement which is OS dependant.
