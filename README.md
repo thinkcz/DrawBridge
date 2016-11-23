@@ -20,7 +20,7 @@ Tool is here: https://github.com/nta/sfpack, which can be used to unpack .sfp fi
 ## Files inside .sfp packages
 It seems there are unmodified binaries of **Windows 8**. However, there are some special ones:
 ### .dbpatch files
-are binary patch files to their respective siblings with the same name. This makes perfect sense as you need to remove any syscalls instructions from binaries like **ntdll.dll wi32k.sys** etc. So instead of store them patched, original files are presented and they are patched on the go.
+are binary patch files to their respective siblings with the same name. This makes perfect sense as you need to remove any syscalls instructions from binaries like **ntdll.dll**, **win32k.sys** etc. So instead of store them patched, original files are presented and they are patched on the go.
 ### ntoskrnl.dll.bin
 this strange file makes perfect sense too, it is with help of **ntoskrnl.dll.bin.ini** user-mode  kernel version in a format ready to run. My guess is that is for reason  that you don't need PE loader to load such prepared image to memory so it is more OS independent way of loading it. Just map it into memory and from .ini file (which contains sections with their addresses, sizes, and protections) set respective protection on that memory. You load a kernel that way without the need of any PE loader.
 
