@@ -4,6 +4,16 @@ Research on DrawBridge Library OS, which is base building block for MSSQL on Lin
 ## Introduction
 Microsoft introduced library OS research called DrawBridge long time ago. Now it seems there is an implementation. MSSQL server on Linux is, in fact LibraryOS of windows 8  and on top of it runs unmodified MSSQL engine. Windows as an application.
 
+## Papers
+
+DrawBridge research page at microsoft.com:
+https://www.microsoft.com/en-us/research/project/drawbridge/
+
+Using DrawBridge and SGX to protect applications both ways:
+https://www.usenix.org/system/files/conference/osdi14/osdi14-paper-baumann.pdf
+
+
+
 ## Hacking
 There is a first tool to unpack .sfp files which are library os archives, can be found after installation of mssql on Ubuntu in **/opt/mssql/lib**
 Tool is here: https://github.com/nta/sfpack, which can be used to unpack .sfp files 
