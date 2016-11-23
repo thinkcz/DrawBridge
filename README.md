@@ -18,7 +18,8 @@ this strange file makes perfect sense too, it is with help of **ntoskrnl.dll.bin
 ### Extracted interesting parts
 When you look on sqlservr /opt/mssql/bin you can find interestig things inside, binary is probably pre-configured **palrun** tool for running arbitrary app inside DarwBridge package, as a proof there are part of command line help interface:
 
-```Usage: palrun [OPTION]... -- [PROGRAM ARGUMENTS]
+```
+Usage: palrun [OPTION]... -- [PROGRAM ARGUMENTS]
 Options that take an additional argument.
   -a, --application         Guest application executable.
   -p, --package             Package directory path.  Multiple packages supported.
@@ -33,5 +34,6 @@ Options that don't take additional arguments.
   -f, --log-file-load       Log to stdout every file load operation.
   -u, --log-unimplemented   Log unimplemented APIs, needs a debug level of libos or more.
   -h, --help                Display help.
-  --allow-attach        Allow attach non-root debugger. ```
+  --allow-attach        Allow attach non-root debugger. 
+```
 
