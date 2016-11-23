@@ -44,6 +44,6 @@ Options that don't take additional arguments.
   -f, --log-file-load       Log to stdout every file load operation.
   -u, --log-unimplemented   Log unimplemented APIs, needs a debug level of libos or more.
   -h, --help                Display help.
-  --allow-attach        Allow attach non-root debugger. 
+      --allow-attach        Allow attach non-root debugger. 
 ```
 
