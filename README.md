@@ -8,7 +8,6 @@ Microsoft introduced library OS research called DrawBridge long time ago. Now it
 
 DrawBridge research page at microsoft.com:
 https://www.microsoft.com/en-us/research/project/drawbridge/
-
 Using DrawBridge and SGX to protect applications both ways:
 https://www.usenix.org/system/files/conference/osdi14/osdi14-paper-baumann.pdf
 
