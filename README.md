@@ -12,7 +12,6 @@ Using DrawBridge and SGX to protect applications both ways:
 https://www.usenix.org/system/files/conference/osdi14/osdi14-paper-baumann.pdf
 
 
-
 ## Hacking
 There is a first tool to unpack .sfp files which are library os archives, can be found after installation of mssql on Ubuntu in **/opt/mssql/lib**
 Tool is here: https://github.com/nta/sfpack, which can be used to unpack .sfp files 
@@ -46,3 +45,9 @@ Options that don't take additional arguments.
       --allow-attach        Allow attach non-root debugger. 
 ```
 
+
+## Learned facts so far
+* it is based on DrawBridge research as Linux on Windows is
+* in this case it is all user-mode implementation, ntdll.dll and few others are patched on the go to remove syscalls
+* it is all done to make more abstract (and with less "calls") interface called PAL- (Platform Abstraction Layer?)
+* to run DrawBridged system you really don't need much to implement which is OS dependant.
