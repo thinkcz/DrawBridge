@@ -24,7 +24,7 @@ are binary patch files to their respective siblings with the same name. This mak
 this strange file makes perfect sense too, it is with help of **ntoskrnl.dll.bin.ini** user-mode  kernel version in a format ready to run. My guess is that is for reason  that you don't need PE loader to load such prepared image to memory so it is more OS independent way of loading it. Just map it into memory and from .ini file (which contains sections with their addresses, sizes, and protections) set respective protection on that memory. You load a kernel that way without the need of any PE loader.
 
 ### Extracted interesting parts
-When you look on sqlservr in /opt/mssql/bin you can find interesting things inside, binary is probably pre-configured **palrun** tool for running arbitrary app inside DarwBridge package, as a proof there are part of command line help interface:
+When you look on sqlservr in /opt/mssql/bin you can find interesting things inside, binary is probably pre-configured **palrun** tool for running arbitrary app inside DarwBridge package, as a proof there is a part of command line help interface:
 
 ```
 Usage: palrun [OPTION]... -- [PROGRAM ARGUMENTS]
