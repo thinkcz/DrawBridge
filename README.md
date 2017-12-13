@@ -51,3 +51,47 @@ Options that don't take additional arguments.
 * in this case it is all user-mode implementation, ntdll.dll and few others are patched on the go to remove syscalls
 * it is all done to make more abstract (and with less "calls") interface called PAL (Platform Abstraction Layer?)
 * to run DrawBridged system you really don't need much to implement which is OS dependant.
+
+### Bleed through
+
+DrawBridge's Library OS may not abstract away the host opperating system. For instance, SQL Server 2017 ships with `./sqlservr.exe.lnx.hiv` which has numerious file locations on the host system,
+
+Registry/Machine/SOFTWARE/Microsoft/Microsoft SQL Server/140/VerSpecificRootDir
+Registry/Machine/SOFTWARE/Microsoft/Microsoft SQL Server/MSSQL/CPE/ErrorDumpDir
+Registry/Machine/SOFTWARE/Microsoft/Microsoft SQL Server/MSSQL/MSSQLServer/Parameters/SQLArg0
+Registry/Machine/SOFTWARE/Microsoft/Microsoft SQL Server/MSSQL/MSSQLServer/Parameters/SQLArg1
+Registry/Machine/SOFTWARE/Microsoft/Microsoft SQL Server/MSSQL/MSSQLServer/Parameters/SQLArg2
+Registry/Machine/SOFTWARE/Microsoft/Microsoft SQL Server/MSSQL/MSSQLServer/BackupDirectory
+Registry/User/.Default/Software/Microsoft/Windows/CurrentVersion/Explorer/Shell Folders/AppData
+
+Further, the supplied `/opt/mssql/lib/system/Content/Windows/windows.hiv` has a whole structure under `Registry/Machine/SYSTEM/LibraryOS`.
+
+### Subjects of more research
+
+There are two binaries distributed that with SQLServer that are suspicious
+
+* `PalProcessLauncher.exe`
+* `launchpad.exe`
+
+Launchpad.exe seems to be how utilities get launched inside the container,
+
+
+```
+> .\launchpad.exe
+Invalid arguments. The supported arguments are:
+        -launcher: Define the launcher dll's full path.
+        -logPath: Define the launchpad's base log path.
+        -satelliteDllPath: Define the sql satellite dll path for the satellites.
+        -workingDir: Define the launchpad and satellite process base working directory.
+        -cleanupLog: Whether to cleanup the log directory after every execution [0|1].
+        -cleanupWorkingDir: Whether to cleanup the working directory after every execution [0|1].
+        -pipeName: Define the launchpad's name pipe's name.
+        -timeout: Define the default timeout in ms.
+        -SqlInstanceName: Define the SqlInstanceName as in MSSQLSERVER or blank for default or an instance name.
+        -logFilesCount - Tells the max number of launchpad error log file to keep across launchpad restarts.
+Example:
+Launchpad.exe  -launcher commonlauncher.dll -logPath C:\sqlServerBinaries\log -satelliteDllPath C:\sqlServerBinaries\bin
+n\sqlsatellite.dll      -workingDir C:\sqlServerBinaries\data\ExtensibilityData -cleanupLog 0 -cleanupWorkingDir 0 -pipe
+Name sqlsatellitelaunch -timeout 600000 -SqlInstanceName MSSQLSERVER    PS Microsoft.PowerShell.Core\FileSystem::\\VBOXS
+VR\mssql\lib\sqlservr\Content\binn>
+```
