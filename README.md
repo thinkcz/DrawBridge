@@ -45,6 +45,13 @@ Options that don't take additional arguments.
       --allow-attach        Allow attach non-root debugger. 
 ```
 
+## Environmental Variables
+
+* `PAL_LOCALE_INFO`
+* `PAL_SQLDK_XPLAT`
+* `PAL_MEMORY_SIZE`
+* `PAL_PROGRAM_INFO`: demonstrated here, https://dba.stackexchange.com/a/194582/2639
+
 
 ## Learned facts so far
 * it is based on DrawBridge research as Linux on Windows is
