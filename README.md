@@ -63,6 +63,7 @@ Options that don't take additional arguments.
 
 DrawBridge's Library OS may not abstract away the host opperating system. For instance, SQL Server 2017 ships with `./sqlservr.exe.lnx.hiv` which has numerious file locations on the host system,
 
+```
 Registry/Machine/SOFTWARE/Microsoft/Microsoft SQL Server/140/VerSpecificRootDir
 Registry/Machine/SOFTWARE/Microsoft/Microsoft SQL Server/MSSQL/CPE/ErrorDumpDir
 Registry/Machine/SOFTWARE/Microsoft/Microsoft SQL Server/MSSQL/MSSQLServer/Parameters/SQLArg0
@@ -70,6 +71,7 @@ Registry/Machine/SOFTWARE/Microsoft/Microsoft SQL Server/MSSQL/MSSQLServer/Param
 Registry/Machine/SOFTWARE/Microsoft/Microsoft SQL Server/MSSQL/MSSQLServer/Parameters/SQLArg2
 Registry/Machine/SOFTWARE/Microsoft/Microsoft SQL Server/MSSQL/MSSQLServer/BackupDirectory
 Registry/User/.Default/Software/Microsoft/Windows/CurrentVersion/Explorer/Shell Folders/AppData
+```
 
 Further, the supplied `/opt/mssql/lib/system/Content/Windows/windows.hiv` has a whole structure under `Registry/Machine/SYSTEM/LibraryOS`.
 
